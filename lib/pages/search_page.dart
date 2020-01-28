@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_trip_app/dao/search_dao.dart';
 import 'package:flutter_trip_app/model/search_model.dart';
+import 'package:flutter_trip_app/pages/speak_page.dart';
 import 'package:flutter_trip_app/widget/search_bar.dart';
 import 'package:flutter_trip_app/widget/webview.dart';
 
@@ -42,24 +43,32 @@ class _SearchPageState extends State<SearchPage> {
   String keyword;
 
   @override
+  void initState() {
+    if (widget.keyword != null) {
+      _onTextChange(widget.keyword);
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
         body: Column(
-          children: <Widget>[
-            _appBar(),
-            MediaQuery.removePadding(
-                removeTop: true,
-                context: context,
-                child: Expanded(
-                    flex: 1,
-                    child: ListView.builder(
-                        itemCount: searchModel?.data?.length ?? 0,
-                        itemBuilder: (BuildContext context, int position) {
-                          return _item(position);
-                        })))
-          ],
-        ));
+      children: <Widget>[
+        _appBar(),
+        MediaQuery.removePadding(
+            removeTop: true,
+            context: context,
+            child: Expanded(
+                flex: 1,
+                child: ListView.builder(
+                    itemCount: searchModel?.data?.length ?? 0,
+                    itemBuilder: (BuildContext context, int position) {
+                      return _item(position);
+                    })))
+      ],
+    ));
   }
 
   _onTextChange(String text) {
@@ -89,13 +98,13 @@ class _SearchPageState extends State<SearchPage> {
         Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [
-                  Color(0x66000000),
-                  Colors.transparent,
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              )),
+            colors: [
+              Color(0x66000000),
+              Colors.transparent,
+            ],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          )),
           child: Container(
               padding: EdgeInsets.only(top: 20),
               height: 80,
@@ -104,6 +113,7 @@ class _SearchPageState extends State<SearchPage> {
                 hideLeft: widget.hideLeft,
                 defaultText: widget.keyword,
                 hint: widget.hint,
+                speackClick: _jumpToSpeak,
                 leftButtonClick: () {
                   Navigator.pop(context);
                 },
@@ -114,6 +124,14 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
+  _jumpToSpeak() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SpeakPage(),
+        ));
+  }
+
   _item(int position) {
     if (searchModel == null || searchModel.data == null) return null;
     SearchItem item = searchModel.data[position];
@@ -122,8 +140,7 @@ class _SearchPageState extends State<SearchPage> {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    WebView(
+                builder: (context) => WebView(
                       url: item.url,
                       title: '详情',
                     )));
@@ -149,7 +166,7 @@ class _SearchPageState extends State<SearchPage> {
               ),
               Container(
                 width: 300,
-                margin: EdgeInsets.only(top:5),
+                margin: EdgeInsets.only(top: 5),
                 child: _subTitle(item),
               )
             ])
@@ -170,44 +187,45 @@ class _SearchPageState extends State<SearchPage> {
     }
     return 'images/type_$path.png';
   }
-  _title(SearchItem item){
-    if(item == null){
+
+  _title(SearchItem item) {
+    if (item == null) {
       return null;
     }
     List<TextSpan> spans = [];
-    spans.addAll(_keywordTextSpans(item.word,searchModel.keyword));
-    spans.add(TextSpan(text: ' '+(item.districtname??'')+' '+(item.zonename??''),
-    style: TextStyle(fontSize: 16,color: Colors.grey)
-    ));
+    spans.addAll(_keywordTextSpans(item.word, searchModel.keyword));
+    spans.add(TextSpan(
+        text: ' ' + (item.districtname ?? '') + ' ' + (item.zonename ?? ''),
+        style: TextStyle(fontSize: 16, color: Colors.grey)));
     return RichText(text: TextSpan(children: spans));
   }
-  _subTitle(SearchItem item){
+
+  _subTitle(SearchItem item) {
     return RichText(
-      text: TextSpan(
-        children: <TextSpan>[
-          TextSpan(text: item.price??'',
-          style: TextStyle(fontSize: 16,color: Colors.orange)
-          ),
-          TextSpan(text: ''+(item.star??''),
-              style: TextStyle(fontSize: 12,color: Colors.grey)
-          )
-        ]
-      ),
+      text: TextSpan(children: <TextSpan>[
+        TextSpan(
+            text: item.price ?? '',
+            style: TextStyle(fontSize: 16, color: Colors.orange)),
+        TextSpan(
+            text: '' + (item.star ?? ''),
+            style: TextStyle(fontSize: 12, color: Colors.grey))
+      ]),
     );
   }
-  _keywordTextSpans(String word, String keyword){
-    List<TextSpan>spans =[];
-    if(word == null || word.length==0)return spans;
-    List<String>arr = word.split(keyword);
-    TextStyle normalStyle = TextStyle(fontSize: 16,color: Colors.black87);
-    TextStyle keywordStyle = TextStyle(fontSize: 16,color: Colors.orange);
-    for(int i =0;i<arr.length;i++){
-      if((i+1)%2==0){
-        spans.add(TextSpan(text: keyword,style: keywordStyle));
+
+  _keywordTextSpans(String word, String keyword) {
+    List<TextSpan> spans = [];
+    if (word == null || word.length == 0) return spans;
+    List<String> arr = word.split(keyword);
+    TextStyle normalStyle = TextStyle(fontSize: 16, color: Colors.black87);
+    TextStyle keywordStyle = TextStyle(fontSize: 16, color: Colors.orange);
+    for (int i = 0; i < arr.length; i++) {
+      if ((i + 1) % 2 == 0) {
+        spans.add(TextSpan(text: keyword, style: keywordStyle));
       }
       String val = arr[i];
-      if(val != null && val.length>0){
-        spans.add(TextSpan(text: val,style: normalStyle));
+      if (val != null && val.length > 0) {
+        spans.add(TextSpan(text: val, style: normalStyle));
       }
     }
     return spans;

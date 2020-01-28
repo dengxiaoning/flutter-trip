@@ -8,6 +8,7 @@ import 'package:flutter_trip_app/model/grid_nav_model.dart';
 import 'package:flutter_trip_app/model/home_model.dart';
 import 'package:flutter_trip_app/model/sales_box_model.dart';
 import 'package:flutter_trip_app/pages/search_page.dart';
+import 'package:flutter_trip_app/pages/speak_page.dart';
 import 'package:flutter_trip_app/widget/grid_nav.dart';
 import 'package:flutter_trip_app/widget/local_nav.dart';
 import 'package:flutter_trip_app/widget/sales_box.dart';
@@ -217,5 +218,10 @@ class _HomePageState extends State<HomePage> {
     ));
   }
 
-  _jumpToSpeak() {}
+  _jumpToSpeak() {
+    Navigator.push(context,
+    MaterialPageRoute(
+      builder: (context)=> SpeakPage(),
+    ));
+  }
 }
