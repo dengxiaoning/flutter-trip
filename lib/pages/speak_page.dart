@@ -63,7 +63,6 @@ class _SpeakPageState extends State<SpeakPage> with SingleTickerProviderStateMix
         Navigator.push(context, MaterialPageRoute(builder: (context)=>
           SearchPage(keyword: speakResult)
         ));
-        print("---------------------"+text);
         }
     }).catchError((e){
       print("-----------error "+e.toString());
