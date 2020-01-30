@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_trip_app/dao/search_dao.dart';
-import 'package:flutter_trip_app/model/search_model.dart';
-import 'package:flutter_trip_app/pages/speak_page.dart';
-import 'package:flutter_trip_app/widget/search_bar.dart';
-import 'package:flutter_trip_app/widget/webview.dart';
+import 'package:flutter_trip/dao/search_dao.dart';
+import 'package:flutter_trip/model/search_model.dart';
+import 'package:flutter_trip/pages/speak_page.dart';
+import 'package:flutter_trip/widget/search_bar.dart';
+import 'package:flutter_trip/widget/webview.dart';
 
 const TYPES = [
   'channelgroup',

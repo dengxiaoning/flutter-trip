@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_trip_app/model/common_model.dart';
-import 'package:flutter_trip_app/model/grid_nav_model.dart';
-import 'package:flutter_trip_app/widget/webview.dart';
+import 'package:flutter_trip/model/common_model.dart';
+import 'package:flutter_trip/model/grid_nav_model.dart';
+import 'package:flutter_trip/widget/webview.dart';
 
 /// 网格卡片
 class GridNav extends StatelessWidget {

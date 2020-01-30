@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_trip_app/model/common_model.dart';
-import 'package:flutter_trip_app/model/grid_nav_model.dart';
-import 'package:flutter_trip_app/model/sales_box_model.dart';
-import 'package:flutter_trip_app/widget/webview.dart';
+import 'package:flutter_trip/model/common_model.dart';
+import 'package:flutter_trip/model/grid_nav_model.dart';
+import 'package:flutter_trip/model/sales_box_model.dart';
+import 'package:flutter_trip/widget/webview.dart';
 
 /// 底部卡片入口
 class SalesBox extends StatelessWidget {

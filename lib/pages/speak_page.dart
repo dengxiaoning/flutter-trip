@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
-import 'package:flutter_trip_app/pages/search_page.dart';
-import 'package:flutter_trip_app/plugin/asr_manager.dart';
+import 'package:flutter_trip/pages/search_page.dart';
+import 'package:flutter_trip/plugin/asr_manager.dart';
 /// 语音识别
 class SpeakPage extends StatefulWidget{
   @override

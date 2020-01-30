@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_trip_app/dao/travel_tab_dao.dart';
-import 'package:flutter_trip_app/model/travel_tab_model.dart';
-import 'package:flutter_trip_app/pages/travel_tab_page.dart';
+import 'package:flutter_trip/dao/travel_tab_dao.dart';
+import 'package:flutter_trip/model/travel_tab_model.dart';
+import 'package:flutter_trip/pages/travel_tab_page.dart';
 
 class TravelPage extends StatefulWidget{
   @override

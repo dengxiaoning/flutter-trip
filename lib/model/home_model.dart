@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_trip_app/model/common_model.dart';
-import 'package:flutter_trip_app/model/config_model.dart';
-import 'package:flutter_trip_app/model/grid_nav_model.dart';
-import 'package:flutter_trip_app/model/sales_box_model.dart';
+import 'package:flutter_trip/model/common_model.dart';
+import 'package:flutter_trip/model/config_model.dart';
+import 'package:flutter_trip/model/grid_nav_model.dart';
+import 'package:flutter_trip/model/sales_box_model.dart';
 
 class HomeModel {
   final ConfigModel configModel;

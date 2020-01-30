@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_trip_app/pages/home_page.dart';
-import 'package:flutter_trip_app/pages/my_page.dart';
-import 'package:flutter_trip_app/pages/search_page.dart';
-import 'package:flutter_trip_app/pages/travel_page.dart';
+import 'package:flutter_trip/pages/home_page.dart';
+import 'package:flutter_trip/pages/my_page.dart';
+import 'package:flutter_trip/pages/search_page.dart';
+import 'package:flutter_trip/pages/travel_page.dart';
 
 class TabNavigator extends StatefulWidget {
   @override
@@ -44,14 +44,14 @@ class _TabNavigatorState extends State<TabNavigator> {
           },
           type: BottomNavigationBarType.fixed,
           items: [
-            _bottomBtn(Icons.home,'首页'),
-            _bottomBtn(Icons.search,'搜索'),
-            _bottomBtn(Icons.camera_alt,'旅拍'),
-            _bottomBtn(Icons.account_circle,'我的'),
+            _bottomBtn(Icons.home,'首页',0),
+            _bottomBtn(Icons.search,'搜索',1),
+            _bottomBtn(Icons.camera_alt,'旅拍',2),
+            _bottomBtn(Icons.account_circle,'我的',3),
       ]),
     );
   }
-  _bottomBtn(IconData icondata,String text){
+  _bottomBtn(IconData icondata,String text,int index){
     return  BottomNavigationBarItem(
         icon: Icon(
        icondata ,
@@ -64,7 +64,7 @@ class _TabNavigatorState extends State<TabNavigator> {
         title: Text(
           text,
           style: TextStyle(
-              color: _currentIndex != 3 ? _defaultColor : _activeColor),
+              color: _currentIndex != index ? _defaultColor : _activeColor),
         ));
   }
 }

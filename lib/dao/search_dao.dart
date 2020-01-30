@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:flutter_trip_app/model/search_model.dart';
+import 'package:flutter_trip/model/search_model.dart';
 import 'package:http/http.dart' as http;
 
 

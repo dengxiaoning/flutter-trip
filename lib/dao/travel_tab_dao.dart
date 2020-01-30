@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_trip_app/model/travel_tab_model.dart';
+import 'package:flutter_trip/model/travel_tab_model.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:flutter_trip_app/model/home_model.dart';
+import 'package:flutter_trip/model/home_model.dart';
 import 'package:flutter/services.dart';
 
 /// 旅拍类别接口
