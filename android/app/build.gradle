@@ -56,6 +56,7 @@ android {
         pickFirst 'lib/x86_64/libflutter.so'
         pickFirst 'lib/x86/libflutter.so'
         pickFirst 'lib/arm64-v8a/libflutter.so'
+        exclude 'lib/armeabi-v7a/libflutter.so'
     }
 }
 
