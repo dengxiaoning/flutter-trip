@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter_trip/pages/search_page.dart';
 import 'package:flutter_trip/plugin/asr_manager.dart';
+import 'package:flutter_trip/util/navigator_util.dart';
 /// 语音识别
 class SpeakPage extends StatefulWidget{
   @override
@@ -60,9 +61,9 @@ class _SpeakPageState extends State<SpeakPage> with SingleTickerProviderStateMix
             speakResult = text;
           });
         Navigator.pop(context);
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>
+          NavigatorUtil.push(context,
           SearchPage(keyword: speakResult)
-        ));
+        );
         }
     }).catchError((e){
       print("-----------error "+e.toString());

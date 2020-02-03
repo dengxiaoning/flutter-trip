@@ -3,6 +3,7 @@ import 'package:flutter_trip/dao/travel_dao.dart';
 import 'package:flutter_trip/model/travel_model.dart';
 import 'package:flutter_trip/model/travel_tab_model.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_trip/util/navigator_util.dart';
 import 'package:flutter_trip/widget/loading_container.dart';
 import 'package:flutter_trip/widget/webview.dart';
 
@@ -40,6 +41,7 @@ ScrollController _scrollController = ScrollController();
 
   @override
   void dispose() {
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -128,11 +130,9 @@ class _TravelItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (item.article.urls != null && item.article.urls.length > 0) {
-          Navigator.push(
+          NavigatorUtil.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      WebView(url: item.article.urls[0].h5Url, title: '详情')));
+              WebView(url: item.article.urls[0].h5Url, title: '详情'));
         }
       },
       child: Card(

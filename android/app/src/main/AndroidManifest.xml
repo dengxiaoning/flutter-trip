@@ -8,9 +8,9 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="flutter_trip_app"
+        android:label="FlutterAPP"
         android:usesCleartextTraffic="true"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_lancher">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

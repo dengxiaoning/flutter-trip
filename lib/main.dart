@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final title = '高级列表下拉刷新与上拉加载更多';
     return MaterialApp(
-        title: 'flutter之携程',
+        title: 'FlutterAPP',
         theme: ThemeData(
           primarySwatch: Colors.blue
         ),
